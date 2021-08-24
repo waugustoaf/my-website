@@ -58,6 +58,11 @@ export const Section = styled.section<SectionProps>`
       flex-direction: row;
       align-items: center;
       padding: 0 2rem;
+
+      @media screen and (max-width: 900px) {
+        flex-direction: column;
+        padding: 5rem 0;
+      }
     `}
 `;
 
@@ -199,6 +204,11 @@ export const Contacts = styled.section`
       filter: brightness(0.8);
     }
   }
+
+  @media screen and (max-width: 900px) {
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 export const History = styled.section`
@@ -258,6 +268,12 @@ export const History = styled.section`
     &:hover {
       filter: brightness(0.8);
     }
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100vw;
+    padding: 0 2rem;
+    margin-top: 2rem;
   }
 `;
 

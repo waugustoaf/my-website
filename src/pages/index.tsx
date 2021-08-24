@@ -144,7 +144,10 @@ const Home = () => {
       </Background>
 
       <Background>
-        <Section type='primary' id='section-three'>
+        <Section
+          type='secondary'
+          id='section-three'
+        >
           <TechsList />
         </Section>
       </Background>

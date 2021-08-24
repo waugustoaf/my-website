@@ -8,6 +8,13 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
 
+  margin-top: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   > div:first-child {
     width: 100%;
 
@@ -21,14 +28,25 @@ export const Container = styled.div`
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 9rem;
+    column-gap: 9rem;
+    row-gap: 2rem;
+  }
+
+  @media screen and (max-width: 900px) {
+    > div:first-child {
+      flex-direction: column;
+      margin: 0 auto;
+    }
+
+    > div:last-child {
+      padding: 0 5rem;
+      grid-template-columns: 1fr;
+    }
   }
 `;
 
 export const CustomButton = styled.button<CustomButtonProps>`
   border: none;
-
-  margin-top: -4%;
 
   width: 22rem;
   height: 18rem;
@@ -55,5 +73,14 @@ export const CustomButton = styled.button<CustomButtonProps>`
     margin-top: 1rem;
     font-size: 1.5rem;
     font-weight: bold;
+  }
+
+  @media screen and (max-width: 900px) {
+    margin: 0 auto;
+    height: 10rem;
+
+    & + button {
+      margin-top: 1rem;
+    }
   }
 `;
