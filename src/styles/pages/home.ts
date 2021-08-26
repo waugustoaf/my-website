@@ -88,8 +88,9 @@ export const Presentation = styled.main`
       background-color: ${props => props.theme.colors.tertiary};
       margin-top: 1rem;
     }
-  }
 
+  }
+  
   div {
     width: 30rem;
     animation: ${fromRight} 1s ease-in-out;
@@ -115,6 +116,10 @@ export const Presentation = styled.main`
     > div {
       display: none;
     }
+
+    > span {
+      font-size: 3.5rem;
+    } 
   }
 `;
 
@@ -206,6 +211,8 @@ export const Contacts = styled.section`
   }
 
   @media screen and (max-width: 900px) {
+    width: 100%;
+    max-width: 100%;
     padding: 0 2rem;
     margin-bottom: 2rem;
   }
@@ -274,6 +281,11 @@ export const History = styled.section`
     width: 100vw;
     padding: 0 2rem;
     margin-top: 2rem;
+
+    > span {
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 `;
 

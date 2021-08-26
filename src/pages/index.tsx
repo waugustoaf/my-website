@@ -1,5 +1,6 @@
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import {
@@ -39,6 +40,10 @@ const Home = () => {
   };
 
   return (
+    <>
+    <Head>
+      <title>waugustoaf | Início</title>
+    </Head>
     <Container>
       <Background>
         <Section id='section-one' type='primary'>
@@ -170,6 +175,7 @@ const Home = () => {
         </button>
       </Footer>
     </Container>
+    </>
   );
 };
 

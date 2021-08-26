@@ -57,3 +57,12 @@ export const infinityZoom = keyframes`
     transform: scale(1.1);
   }
 `;
+
+export const opacityFromZero = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;

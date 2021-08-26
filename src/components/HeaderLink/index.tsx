@@ -14,7 +14,7 @@ export const HeaderLink = ({ to, children }: HeaderLinkProps) => {
 
   return (
     <Container isActive={isActive}>
-      <Link href={to} passHref={true}>
+      <Link href={to} passHref>
         <HyperLink isActive={isActive}>{children}</HyperLink>
       </Link>
     </Container>
