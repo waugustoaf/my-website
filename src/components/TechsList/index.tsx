@@ -3,19 +3,25 @@ import { CgBrowser } from 'react-icons/cg';
 import { AiOutlineMobile } from 'react-icons/ai';
 import { FaServer } from 'react-icons/fa';
 import { Card } from './Card';
-import { techs } from '../../utils/techs';
 import { useEffect, useState } from 'react';
 import { TechDTO } from '../../dtos/TechDTO';
+import { useTechnology } from '../../hooks/technology';
 
-export const TechsList = () => {
+interface TechListProps {
+  technologies: TechDTO[];
+}
+
+export const TechsList = ({ technologies }: TechListProps) => {
   const [currentTechs, setCurrentTechs] = useState<TechDTO[]>([]);
   const [currentTechName, setCurrentTechName] = useState<
     'web' | 'mobile' | 'backend'
   >('web');
 
   useEffect(() => {
-    setCurrentTechs(techs[currentTechName].techs);
-  }, [currentTechName]);
+    setCurrentTechs(
+      technologies.filter(technology => technology.type === currentTechName),
+    );
+  }, [currentTechName, technologies]);
 
   return (
     <Container>

@@ -1,5 +1,7 @@
 export interface TechDTO {
   id: string;
-  title: string;
-  time: string;
+  name: string;
+  start_date: Date;
+  type: 'web' | 'mobile' | 'developer';
+  formatted_start_date: string;
 }
