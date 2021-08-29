@@ -37,3 +37,19 @@ export const Title = styled.hgroup`
     color: ${props => props.theme.colors.fontSecondary};
   }
 `;
+
+export const Cards = styled.div`
+  margin: 6rem auto 6rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7rem;
+
+  @media screen and (max-width: 1920px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+`;
