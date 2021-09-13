@@ -2,7 +2,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   FaArrowDown,
   FaGithub,

@@ -12,6 +12,14 @@ export const Container = styled.div`
   background-color: ${props => props.theme.colors.quaternary};
   box-shadow: 0px 0px 28px -2px rgba(0, 0, 0, 0.4);
   border: #fff 2px solid;
+
+  @media screen and (max-width: 700px) {
+    width: 25rem;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 20rem;
+  }
 `;
 
 export const Image = styled.div<ImageProps>`
@@ -24,10 +32,14 @@ export const Image = styled.div<ImageProps>`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  @media screen and (max-width: 700px) {
+    height: 15rem;
+  }
 `;
 
 export const Infos = styled.div`
-  height: 13rem;
+  height: 14rem;
   padding: 1rem;
 
   display: flex;
@@ -53,15 +65,16 @@ export const Infos = styled.div`
 
     display: flex;
     justify-content: space-between;
+    gap: 2rem;
 
     a {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0.5rem;
+      padding: 0.8rem 0.5rem;
       border-radius: 7px;
 
-      width: 48%;
+      flex: 1;
       background: ${props => props.theme.colors.tertiary};
       color: ${props => props.theme.colors.fontPrimary};
 

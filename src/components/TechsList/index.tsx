@@ -6,22 +6,59 @@ import { Card } from './Card';
 import { useEffect, useState } from 'react';
 import { TechDTO } from '../../dtos/TechDTO';
 import { useTechnology } from '../../hooks/technology';
+import { ExtraCard } from './ExtraCard';
 
 interface TechListProps {
   technologies: TechDTO[];
 }
 
+interface TechProps {
+  main: TechDTO[];
+  extras: TechDTO[];
+}
+
+interface TechsProps {
+  backend: TechProps;
+  web: TechProps;
+  mobile: TechProps;
+}
+
 export const TechsList = ({ technologies }: TechListProps) => {
-  const [currentTechs, setCurrentTechs] = useState<TechDTO[]>([]);
+  const [techs, setTechs] = useState<TechsProps>(() => {
+    const mobileTechs = technologies.filter(
+      technology => technology.type === 'mobile',
+    );
+    const backendTechs = technologies.filter(
+      technology => technology.type === 'backend',
+    );
+    const webTechs = technologies.filter(
+      technology => technology.type === 'web',
+    );
+
+    return {
+      backend: {
+        main: backendTechs.slice(
+          0,
+          backendTechs.length < 5 ? backendTechs.length : 5,
+        ),
+        extras: backendTechs.slice(6, backendTechs.length - 1),
+      },
+      web: {
+        main: webTechs.slice(0, webTechs.length < 5 ? webTechs.length : 5),
+        extras: webTechs.slice(6, backendTechs.length - 1),
+      },
+      mobile: {
+        main: mobileTechs.slice(
+          0,
+          mobileTechs.length < 5 ? mobileTechs.length : 5,
+        ),
+        extras: mobileTechs.slice(6, backendTechs.length - 1),
+      },
+    };
+  });
   const [currentTechName, setCurrentTechName] = useState<
     'web' | 'mobile' | 'backend'
   >('web');
-
-  useEffect(() => {
-    setCurrentTechs(
-      technologies.filter(technology => technology.type === currentTechName),
-    );
-  }, [currentTechName, technologies]);
 
   return (
     <Container>
@@ -52,9 +89,15 @@ export const TechsList = ({ technologies }: TechListProps) => {
         </CustomButton>
       </div>
       <div>
-        {currentTechs.map(tech => (
+        {techs[currentTechName].main.map(tech => (
           <Card key={tech.id} tech={tech} />
         ))}
+        {techs[currentTechName].extras.length > 0 && (
+          <ExtraCard
+            key={new Date().toString()}
+            techs={techs[currentTechName].extras}
+          />
+        )}
       </div>
     </Container>
   );

@@ -17,7 +17,7 @@ const Portfolio = ({ projects }: PortfolioProps) => {
       <Head>
         <title>waugustoaf | Portfólio</title>
       </Head>
-      <Section>
+      <Section id="section-one">
         <Header />
 
         <Title>

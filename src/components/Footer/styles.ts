@@ -1,8 +1,11 @@
 import styled from "styled-components";
+import { fromBottom } from "../../styles/keyframes";
 
 export const Container = styled.footer`
   width: 100%;
   height: 20rem;
+
+  animation: ${fromBottom} 0.8s ease-in-out alternate;
 
   display: flex;
   flex-direction: column;

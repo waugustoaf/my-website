@@ -66,3 +66,12 @@ export const opacityFromZero = keyframes`
     opacity: 1;
   }
 `;
+
+export const comeFromZero = keyframes`
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+`;

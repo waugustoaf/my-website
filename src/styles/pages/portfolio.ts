@@ -49,7 +49,7 @@ export const Cards = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1220px) {
     grid-template-columns: 1fr;
   }
 `;
