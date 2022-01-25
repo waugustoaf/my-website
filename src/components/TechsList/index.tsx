@@ -1,12 +1,11 @@
-import { Container, CustomButton } from './styles';
-import { CgBrowser } from 'react-icons/cg';
+import { useState } from 'react';
 import { AiOutlineMobile } from 'react-icons/ai';
+import { CgBrowser } from 'react-icons/cg';
 import { FaServer } from 'react-icons/fa';
-import { Card } from './Card';
-import { useEffect, useState } from 'react';
 import { TechDTO } from '../../dtos/TechDTO';
-import { useTechnology } from '../../hooks/technology';
+import { Card } from './Card';
 import { ExtraCard } from './ExtraCard';
+import { Container, CustomButton } from './styles';
 
 interface TechListProps {
   technologies: TechDTO[];
@@ -41,18 +40,18 @@ export const TechsList = ({ technologies }: TechListProps) => {
           0,
           backendTechs.length < 5 ? backendTechs.length : 5,
         ),
-        extras: backendTechs.slice(6, backendTechs.length - 1),
+        extras: backendTechs.slice(5, backendTechs.length),
       },
       web: {
         main: webTechs.slice(0, webTechs.length < 5 ? webTechs.length : 5),
-        extras: webTechs.slice(6, backendTechs.length - 1),
+        extras: webTechs.slice(5, webTechs.length),
       },
       mobile: {
         main: mobileTechs.slice(
           0,
           mobileTechs.length < 5 ? mobileTechs.length : 5,
         ),
-        extras: mobileTechs.slice(6, backendTechs.length - 1),
+        extras: mobileTechs.slice(5, mobileTechs.length),
       },
     };
   });
