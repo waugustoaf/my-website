@@ -63,7 +63,7 @@ const Home = ({ technologies }: HomeProps) => {
               <div>
                 <span>– Apresentação</span>
                 <h2>
-                  Desenvolvedor FrontEnd Web e Mobile | JavaScript & TypeScript
+                  Desenvolvedor Web, Mobile e Backend | TypeScript & PHP
                 </h2>
                 <p>
                   Eu desenvolvo e personalizo coisas simples e bonitas com
@@ -133,10 +133,10 @@ const Home = ({ technologies }: HomeProps) => {
               </h2>
               <p>
                 Apaixonado pelo mundo da programação, tive meu primeiro contato
-                com esse mundo aos nove anos de idade. Em 2019 retorno a esse
-                mundo e de lá pra cá não larguei mais os estudos. Sou do
-                interior de Minas Gerais, estudante de Desenvolvimento de
-                Sistemas pelo CEFET-MG
+                com esse mundo aos nove anos de idade. Em 2018 retorno a esse
+                mundo e de lá pra cá não larguei mais os estudos, freelas e o que há de interessante. Sou do
+                interior de Minas Gerais, formado em Desenvolvimento de
+                Sistemas pelo CEFET-MG.
               </p>
               <span>
                 <div>
