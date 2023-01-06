@@ -19,17 +19,20 @@ export const ProjectCard = ({
         <h2>{name}</h2>
         <p>{description}</p>
         <span>
-          {external_link !== 'https://www.waugustoaf.com.br/portfolio' && (
-            <a href={external_link} target='_blank' rel='noreferrer'>
-              <CgBrowser />
-              Ir ao site
+          {external_link &&
+            external_link !== 'https://www.waugustoaf.com.br/portfolio' && (
+              <a href={external_link} target='_blank' rel='noreferrer'>
+                <CgBrowser />
+                Ir ao site
+              </a>
+            )}
+
+          {github_link && (
+            <a href={github_link} target='_blank' rel='noreferrer'>
+              <FaGithub />
+              Ver repositório
             </a>
           )}
-
-          <a href={github_link} target='_blank' rel='noreferrer'>
-            <FaGithub />
-            Ver repositório
-          </a>
         </span>
       </Infos>
     </Container>
