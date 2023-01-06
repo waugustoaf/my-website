@@ -17,7 +17,7 @@ const Portfolio = ({ projects }: PortfolioProps) => {
       <Head>
         <title>waugustoaf | Portfólio</title>
       </Head>
-      <Section id="section-one">
+      <Section id='section-one'>
         <Header />
 
         <Title>
@@ -26,7 +26,7 @@ const Portfolio = ({ projects }: PortfolioProps) => {
         </Title>
       </Section>
       <Cards>
-        {projects.map(project => (
+        {projects.map((project) => (
           <ProjectCard project={project} key={project.id} />
         ))}
       </Cards>
@@ -38,12 +38,21 @@ const Portfolio = ({ projects }: PortfolioProps) => {
 export default Portfolio;
 
 export const getStaticProps: GetStaticProps<PortfolioProps> = async () => {
-  const projects = (await api.get('/projects')).data;
+  try {
+    const projects = (await api.get('/projects')).data;
 
-  return {
-    props: {
-      projects,
-    },
-    revalidate: 60 * 60 * 8, // 8 hours
-  };
+    return {
+      props: {
+        projects,
+      },
+      revalidate: 60 * 60 * 8, // 8 hours
+    };
+  } catch {
+    return {
+      props: {
+        projects: [],
+      },
+      revalidate: 20,
+    };
+  }
 };

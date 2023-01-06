@@ -62,9 +62,7 @@ const Home = ({ technologies }: HomeProps) => {
 
               <div>
                 <span>– Apresentação</span>
-                <h2>
-                  Desenvolvedor Web, Mobile e Backend | TypeScript & PHP
-                </h2>
+                <h2>Desenvolvedor Web, Mobile e Backend | TypeScript & PHP</h2>
                 <p>
                   Eu desenvolvo e personalizo coisas simples e bonitas com
                   códigos, e amo o que eu faço!
@@ -134,9 +132,9 @@ const Home = ({ technologies }: HomeProps) => {
               <p>
                 Apaixonado pelo mundo da programação, tive meu primeiro contato
                 com esse mundo aos nove anos de idade. Em 2018 retorno a esse
-                mundo e de lá pra cá não larguei mais os estudos, freelas e o que há de interessante. Sou do
-                interior de Minas Gerais, formado em Desenvolvimento de
-                Sistemas pelo CEFET-MG.
+                mundo e de lá pra cá não larguei mais os estudos, freelas e o
+                que há de interessante. Sou do interior de Minas Gerais, formado
+                em Desenvolvimento de Sistemas pelo CEFET-MG.
               </p>
               <span>
                 <div>
@@ -169,12 +167,21 @@ const Home = ({ technologies }: HomeProps) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const technologies = (await api.get('/technologies')).data;
+  try {
+    const technologies = (await api.get('/technologies')).data;
 
-  return {
-    props: {
-      technologies,
-    },
-    revalidate: 60 * 60 * 8, // 8 hours
-  };
+    return {
+      props: {
+        technologies,
+      },
+      revalidate: 60 * 60 * 8, // 8 hours
+    };
+  } catch {
+    return {
+      props: {
+        technologies: [],
+      },
+      revalidate: 20,
+    };
+  }
 };
